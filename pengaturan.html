@@ -176,6 +176,65 @@ body{
   }
 }
 
+/* ===============================
+   HAMBURGER MENU – CONSISTENT
+   =============================== */
+
+/* HEADER */
+.nav-header{
+  display:none;
+  margin-top:16px;
+}
+
+/* BUTTON */
+.hamburger{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:16px;
+  font-weight:600;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:8px 12px;
+}
+
+/* LOGOUT */
+.nav-item.logout{
+  color:#e11d48;
+  font-weight:600;
+}
+
+/* MOBILE */
+@media (max-width: 480px){
+
+  .nav-header{
+    display:block;
+  }
+
+  .nav{
+    display:none;
+    flex-direction:column;
+    margin-top:10px;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    overflow:hidden;
+  }
+
+  .nav.show{
+    display:flex;
+  }
+
+  .nav-item{
+    padding:12px 16px;
+    border-bottom:1px solid #e5e7eb;
+    font-size:15px;
+  }
+
+  .nav-item:last-child{
+    border-bottom:none;
+  }
+}
 
   
 </style>
@@ -188,13 +247,23 @@ body{
 <h1 style="margin:0;">Pengaturan</h1>
 <p style="margin:6px 0 0; color:#6b7280;">Ubah password login di perangkat ini.</p>
 
-<div class="nav">
+<!-- HEADER MOBILE -->
+<div class="nav-header">
+  <button class="hamburger" onclick="toggleMenu()">
+    ☰ <span>Menu</span>
+  </button>
+</div>
+
+<!-- NAV MENU -->
+<div class="nav" id="navMenu">
   <a href="dashboard.html" class="nav-item">Dashboard</a>
   <a href="penyimpanan.html" class="nav-item">Penyimpanan</a>
   <a href="jadwal.html" class="nav-item">Jadwal Live</a>
-  <a href="pengaturan.html" class="nav-item active">Pengaturan</a>
-  <a href="#" onclick="logout()" class="nav-item" style="margin-left:auto;color:#e11d48;">Logout</a>
+  <a href="pengaturan.html" class="nav-item">Pengaturan</a>
+
+  <a href="#" onclick="logout()" class="nav-item logout">Logout</a>
 </div>
+
 
 <!-- ============================= -->
 <!-- GANTI PASSWORD -->
@@ -244,5 +313,12 @@ function changePassword(){
 }
 </script>
 
+<script>
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+
+  
 </body>
 </html>
