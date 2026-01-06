@@ -93,11 +93,9 @@ textarea{min-height:110px}
    HAMBURGER MENU
    =============================== */
 
-/* HEADER */
+/* HEADER MOBILE */
 .nav-header{
   display:none;
-  align-items:center;
-  justify-content:space-between;
   margin-top:16px;
 }
 
@@ -106,11 +104,17 @@ textarea{min-height:110px}
   font-size:16px;
 }
 
+/* TOMBOL HAMBURGER */
 .hamburger{
-  font-size:22px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:16px;
+  font-weight:600;
   background:none;
   border:none;
   cursor:pointer;
+  padding:8px 12px;
 }
 
 /* LOGOUT */
@@ -168,9 +172,12 @@ textarea{min-height:110px}
 
 <!-- HEADER MOBILE -->
 <div class="nav-header">
-  <span class="nav-title">Menu</span>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <button class="hamburger" onclick="toggleMenu()">
+    ☰ <span>Menu</span>
+  </button>
 </div>
+
+   
 
 <!-- NAV MENU -->
 <div class="nav" id="navMenu">
