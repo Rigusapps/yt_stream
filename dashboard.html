@@ -197,6 +197,54 @@ textarea{min-height:110px}
   }
 }
 
+   /* ==================================
+   DESKTOP FIX – DASHBOARD FORM RAPIH
+   ================================== */
+@media (min-width: 481px){
+
+  /* Semua input & select seragam */
+  .dashboard-page .input,
+  .dashboard-page select{
+    height:44px;                 /* KUNCI TINGGI */
+    padding:10px 12px;
+    font-size:14px;
+    line-height:1.4;
+    box-sizing:border-box;
+  }
+
+  /* Textarea proporsional */
+  .dashboard-page textarea{
+    min-height:120px;             /* TIDAK TERLALU TINGGI */
+    padding:12px;
+    font-size:14px;
+    line-height:1.5;
+    resize:vertical;
+    box-sizing:border-box;
+  }
+
+  /* Baris form sejajar rapi */
+  .dashboard-page .form-row{
+    align-items:flex-end;         /* INPUT SEJAJAR */
+  }
+
+  /* Checkbox loop video lebih rapi */
+  .dashboard-page .form-col input[type="checkbox"]{
+    transform:scale(1.1);
+    margin-right:6px;
+  }
+
+  /* Tombol Stream / Clear sejajar */
+  .dashboard-page .btn{
+    height:44px;
+    padding:0 18px;
+    font-size:14px;
+    border-radius:10px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+}
+
     
 </style>
 
