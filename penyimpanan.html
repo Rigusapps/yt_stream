@@ -137,6 +137,8 @@ th,td{
 <script>
 const WORKER_API = "https://yt-scheduler-api.rigus-apps.workers.dev";
 const REPLIT_CONVERTER = "https://26dd6d56-c0d8-4b20-b07d-bae16f37a698-00-154zx0u9lm7i4.sisko.replit.dev/convert";
+const REPLIT_HEALTH = "https://26dd6d56-c0d8-4b20-b07d-bae16f37a698-00-154zx0u9lm7i4.sisko.replit.dev";
+ 
 
 async function loadFiles(){
   const tbody = document.getElementById("storageTbody");
@@ -223,6 +225,14 @@ document.getElementById("uploadBtn").onclick = async () => {
 };
 
 document.getElementById("refreshBtn").onclick = loadFiles;
+  
+// AUTO-WARM Replit Converter (anti gagal upload pertama)
+(function warmReplit(){
+  fetch(REPLIT_HEALTH, { mode:"no-cors" })
+    .then(()=>console.log("Replit converter warmed"))
+    .catch(()=>console.log("Replit warm attempt"));
+})();
+
 loadFiles();
 </script>
 
