@@ -31,10 +31,79 @@ textarea{min-height:110px}
 .form-row{display:flex;gap:24px;margin-bottom:20px}
 .form-col{flex:1;display:flex;flex-direction:column}
 @media(max-width:700px){.form-row{flex-direction:column}}
+
+/* ===============================
+   MOBILE FIX – DASHBOARD ONLY
+   =============================== */
+@media (max-width: 480px){
+
+  /* BODY */
+  body.dashboard-page{
+    padding:14px;
+  }
+
+  /* CONTAINER */
+  .dashboard-page .container{
+    padding:18px;
+    margin:0 auto;
+  }
+
+  /* JUDUL */
+  .dashboard-page h1{
+    font-size:22px;
+    margin-bottom:4px;
+  }
+
+  .dashboard-page p{
+    font-size:14px;
+  }
+
+  /* NAV MENU */
+  .dashboard-page .nav{
+    overflow-x:auto;
+    white-space:nowrap;
+    gap:16px;
+    padding-bottom:8px;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .dashboard-page .nav-item{
+    flex-shrink:0;
+    font-size:15px;
+  }
+
+  .dashboard-page .nav::-webkit-scrollbar{
+    display:none;
+  }
+
+  /* CARD */
+  .dashboard-page .card{
+    width:100%;
+    padding:16px;
+    margin-top:16px;
+    border-radius:12px;
+  }
+
+  /* BUTTON */
+  .dashboard-page button{
+    width:100%;
+    min-height:44px;
+    font-size:16px;
+    margin-top:10px;
+  }
+}
+
+
+    
 </style>
+
+    
+
+    
 </head>
 
-<body>
+<body class="dashboard-page">
+
 <div class="container">
 
 <h1>YT Stream — Sederhana</h1>
