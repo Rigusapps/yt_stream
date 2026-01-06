@@ -78,19 +78,132 @@ th,td{padding:12px 6px;text-align:left;border-bottom:1px solid #e5e7eb;}
 }
 
 
-/* ==================================
-   FIX FINAL – AKSI TIDAK TERLIHAT
-   ================================== */
+/* =================================================
+   JADWAL LIVE – FINAL CSS (DESKTOP + MOBILE)
+   ================================================= */
+
+/* ---------- DESKTOP (AMAN) ---------- */
+.schedule-page table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.schedule-page th,
+.schedule-page td{
+  padding:10px 8px;
+  border-bottom:1px solid #e5e7eb;
+  text-align:left;
+  vertical-align:top;
+  font-size:14px;
+}
+
+.schedule-page th{
+  font-weight:600;
+}
+
+.schedule-page td a{
+  word-break:break-all;
+}
+
+
+/* =================================================
+   MOBILE MODE
+   ================================================= */
 @media (max-width: 480px){
 
-  /* SEMUA TD JADI BLOCK */
+  /* RESET OVERFLOW */
+  body.schedule-page{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+  }
+
+  .schedule-page .container{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:16px;
+    box-sizing:border-box;
+  }
+
+  /* NAV SCROLL */
+  .schedule-page .nav{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    white-space:nowrap;
+    padding-bottom:8px;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .schedule-page .nav::-webkit-scrollbar{
+    display:none;
+  }
+
+  .schedule-page .nav-item{
+    flex-shrink:0;
+    font-size:15px;
+  }
+
+  /* ---------- TABEL → CARD ---------- */
+  .schedule-page table,
+  .schedule-page thead,
+  .schedule-page tbody,
+  .schedule-page tr,
+  .schedule-page th,
   .schedule-page td{
     display:block;
     width:100%;
     box-sizing:border-box;
   }
 
-  /* KOLOM TERAKHIR = AKSI (AMAN) */
+  .schedule-page thead{
+    display:none;
+  }
+
+  /* SETIAP BARIS JADI KARTU */
+  .schedule-page tbody tr{
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:12px;
+    margin-bottom:14px;
+  }
+
+  /* CELL */
+  .schedule-page td{
+    border:none;
+    padding:6px 0;
+    font-size:14px;
+    word-break:break-word;
+  }
+
+  /* LABEL OTOMATIS BERDASARKAN URUTAN */
+  .schedule-page td:nth-child(1)::before{
+    content:"Waktu (WIB)";
+    font-weight:600;
+    display:block;
+  }
+
+  .schedule-page td:nth-child(2)::before{
+    content:"Judul";
+    font-weight:600;
+    display:block;
+  }
+
+  .schedule-page td:nth-child(3)::before{
+    content:"Durasi";
+    font-weight:600;
+    display:block;
+  }
+
+  .schedule-page td:nth-child(4)::before{
+    content:"Video";
+    font-weight:600;
+    display:block;
+  }
+
+  /* KOLOM TERAKHIR = AKSI (PALING AMAN) */
   .schedule-page td:last-child::before{
     content:"Aksi";
     font-weight:600;
@@ -98,20 +211,23 @@ th,td{padding:12px 6px;text-align:left;border-bottom:1px solid #e5e7eb;}
     margin-top:8px;
   }
 
-  .schedule-page td:last-child{
-    padding-top:6px;
+  /* LINK VIDEO */
+  .schedule-page td a{
+    font-size:13px;
+    word-break:break-all;
   }
 
-  /* SEMUA TOMBOL / LINK DI AKSI */
+  /* TOMBOL AKSI */
   .schedule-page td:last-child button,
   .schedule-page td:last-child a{
     display:block;
     width:100%;
     margin-top:6px;
+    padding:10px;
     text-align:center;
+    border-radius:8px;
   }
 }
-
 
 
   
