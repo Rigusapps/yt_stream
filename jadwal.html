@@ -300,6 +300,32 @@ td a{
   }
 }
 
+/* ==================================
+   FIX FINAL: COPY & HAPUS SAMA BESAR
+   (JADWAL - MOBILE)
+   ================================== */
+@media (max-width: 480px){
+
+  .schedule-page .action-box a,
+  .schedule-page .action-box button{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+
+    width:100%;
+    height:42px;          /* KUNCI TINGGI */
+    padding:0 !important; /* HAPUS padding beda */
+    margin:0;
+
+    font-size:14px;
+    line-height:1;        /* PENTING */
+    box-sizing:border-box;
+  }
+
+  .schedule-page .action-box{
+    gap:6px;
+  }
+}
 
    
 </style>
