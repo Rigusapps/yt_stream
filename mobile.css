@@ -1,104 +1,87 @@
-/* ==================================================
-   GLOBAL MOBILE OPTIMIZATION
-   Berlaku untuk SEMUA halaman
-   ================================================== */
-
+/* ===============================
+   MOBILE GLOBAL (AMAN)
+   =============================== */
 @media (max-width: 480px){
 
-  /* ---------- BODY ---------- */
   body{
-    padding:14px !important;
     margin:0;
+    padding:14px;
     font-size:15px;
   }
 
-  /* ---------- CONTAINER ---------- */
   .container{
-    width:100% !important;
-    padding:18px !important;
-    margin:0 auto !important;
+    width:100%;
+    padding:16px;
   }
 
-  /* ---------- CARD / BOX ---------- */
-  .card{
-    width:100% !important;
-    padding:18px !important;
-    border-radius:12px;
-    margin-top:16px;
-  }
+  h1{ font-size:22px; }
+  h2{ font-size:20px; }
+  h3{ font-size:18px; }
 
-  /* ---------- HEADINGS ---------- */
-  h1{
-    font-size:22px;
-    line-height:1.3;
-  }
-  h2{
-    font-size:20px;
-  }
-  h3{
-    font-size:18px;
-  }
-  p{
+  p, .subtitle{
     font-size:14px;
   }
 
-  /* ---------- INPUT & BUTTON ---------- */
-  input,
-  select,
-  textarea,
-  button{
-    font-size:16px !important; /* anti zoom */
-  }
-
-  button{
-    width:100%;
-    min-height:44px;
-    padding:12px;
-    border-radius:10px;
-  }
-
-  /* ---------- NAVIGATION ---------- */
+  /* NAV */
   .nav{
     display:flex;
     gap:18px;
     overflow-x:auto;
     white-space:nowrap;
-    padding-bottom:10px;
-    margin-top:16px;
-    -webkit-overflow-scrolling:touch;
+    padding-bottom:8px;
+    margin-top:12px;
   }
 
   .nav-item{
     flex-shrink:0;
     font-size:15px;
-    padding-bottom:6px;
   }
 
   .nav::-webkit-scrollbar{
     display:none;
   }
 
-  /* ---------- TABLE (DEFAULT MOBILE) ---------- */
-  table{
-    width:100%;
-    font-size:14px;
+  /* CARD */
+  .card{
+    padding:16px;
+    border-radius:12px;
+    margin-top:16px;
   }
 
-  /* ---------- STORAGE: TABLE → CARD ---------- */
-  table,
-  thead,
-  tbody,
-  tr,
-  th,
-  td{
+  /* FORM */
+  input,
+  select,
+  textarea,
+  button{
+    font-size:16px;
+  }
+
+  button{
+    width:100%;
+    min-height:44px;
+    padding:12px;
+  }
+}
+
+/* ===============================
+   MOBILE KHUSUS PENYIMPANAN
+   =============================== */
+@media (max-width: 480px){
+
+  .storage-page table,
+  .storage-page thead,
+  .storage-page tbody,
+  .storage-page tr,
+  .storage-page th,
+  .storage-page td{
     display:block;
   }
 
-  thead{
+  .storage-page thead{
     display:none;
   }
 
-  tbody tr{
+  .storage-page tbody tr{
     background:#fff;
     border:1px solid #e5e7eb;
     border-radius:12px;
@@ -106,44 +89,19 @@
     margin-bottom:14px;
   }
 
-  td{
+  .storage-page td{
     border:none;
     padding:6px 0;
   }
 
-  td:nth-child(1)::before{
-    content:"Preview";
-    font-weight:600;
-    display:block;
-  }
-  td:nth-child(2)::before{
-    content:"Nama File";
-    font-weight:600;
-    display:block;
-  }
-  td:nth-child(3)::before{
-    content:"Ukuran";
-    font-weight:600;
-    display:block;
-  }
-  td:nth-child(4)::before{
-    content:"Aksi";
-    font-weight:600;
-    display:block;
-  }
+  .storage-page td:nth-child(1)::before{ content:"Preview"; font-weight:600; display:block; }
+  .storage-page td:nth-child(2)::before{ content:"Nama File"; font-weight:600; display:block; }
+  .storage-page td:nth-child(3)::before{ content:"Ukuran"; font-weight:600; display:block; }
+  .storage-page td:nth-child(4)::before{ content:"Aksi"; font-weight:600; display:block; }
 
-  /* ---------- PREVIEW VIDEO ---------- */
-  .preview{
+  .storage-page .preview{
     width:100%;
     max-width:240px;
     height:auto;
-    margin-bottom:6px;
-  }
-
-  /* ---------- FOOTER ---------- */
-  .footer{
-    font-size:13px;
-    text-align:center;
-    margin:30px 0 10px;
   }
 }
