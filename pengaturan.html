@@ -208,6 +208,35 @@ body{
   }
 }
    
+/* ==================================
+   FIX FINAL: CARD KELUAR KOLOM
+   (PENGATURAN - MOBILE)
+   ================================== */
+@media (max-width: 480px){
+
+  /* KUNCI BOX MODEL */
+  .settings-page *,
+  .settings-page *::before,
+  .settings-page *::after{
+    box-sizing:border-box;
+  }
+
+  /* PASTIKAN CONTAINER & CARD AMAN */
+  .settings-page .container,
+  .settings-page .card{
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  /* INPUT & BUTTON */
+  .settings-page input,
+  .settings-page button{
+    max-width:100%;
+  }
+}
+
+
    
 </style>
 </head>
