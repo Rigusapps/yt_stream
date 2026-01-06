@@ -229,6 +229,27 @@ th,td{padding:12px 6px;text-align:left;border-bottom:1px solid #e5e7eb;}
   }
 }
 
+  /* ==================================
+   SAMAKAN UKURAN TOMBOL AKSI (MOBILE)
+   ================================== */
+@media (max-width: 480px){
+
+  /* Semua tombol / link di kolom Aksi */
+  .schedule-page td:last-child button,
+  .schedule-page td:last-child a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:42px;              /* KUNCI tinggi */
+    padding:0;                /* Hilangkan padding beda */
+    margin-top:6px;
+    font-size:14px;
+    border-radius:8px;
+    box-sizing:border-box;
+  }
+}
+
 
   
 </style>
