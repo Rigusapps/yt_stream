@@ -327,6 +327,38 @@ td a{
   }
 }
 
+   /* ==================================
+   DESKTOP: AKSI BERDAMPINGAN & SAMA BESAR
+   (JADWAL LIVE)
+   ================================== */
+@media (min-width: 481px){
+
+  /* Bungkus aksi jadi horizontal */
+  .schedule-page .action-box{
+    display:flex;
+    flex-direction:row;     /* SEJAJAR */
+    gap:8px;                /* JARAK ANTAR TOMBOL */
+    align-items:center;
+  }
+
+  /* Samakan ukuran tombol */
+  .schedule-page .action-box a,
+  .schedule-page .action-box button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:80px;         /* KUNCI LEBAR MINIMAL */
+    height:34px;            /* KUNCI TINGGI */
+    padding:0 12px;
+
+    font-size:13px;
+    border-radius:6px;
+    box-sizing:border-box;
+    white-space:nowrap;
+  }
+}
+
    
 </style>
 </head>
