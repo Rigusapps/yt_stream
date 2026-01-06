@@ -1,13 +1,17 @@
 <!doctype html>
 <html lang="id">
 <head>
-<script src='auth.js'></script>
+<script src="auth.js"></script>
 <meta charset="utf-8">
 <title>Penyimpanan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
 
 <style>
+/* =================================================
+   BASE
+   ================================================= */
 body{
   font-family:'Inter',sans-serif;
   background:#f4f7fb;
@@ -15,6 +19,7 @@ body{
   padding:0;
   color:#0f172a;
 }
+
 .container{
   max-width:980px;
   margin:36px auto;
@@ -23,6 +28,10 @@ body{
   border-radius:12px;
   box-shadow:0 8px 30px rgba(16,24,40,0.06);
 }
+
+/* =================================================
+   NAV DESKTOP
+   ================================================= */
 .nav{
   margin-top:20px;
   display:flex;
@@ -30,6 +39,7 @@ body{
   border-bottom:1px solid #e5e7eb;
   padding-bottom:12px;
 }
+
 .nav-item{
   font-size:15px;
   font-weight:600;
@@ -39,230 +49,19 @@ body{
   border-bottom:2px solid transparent;
   transition:.15s ease;
 }
+
 .nav-item:hover{ color:#2563eb; }
 .nav-item.active{ color:#2563eb; border-color:#2563eb; }
-
-.card{
-  background:white;
-  padding:20px;
-  border-radius:10px;
-  border:1px solid #e5e7eb;
-  margin-top:24px;
-}
-.btn{
-  padding:8px 16px;
-  border-radius:8px;
-  font-weight:600;
-  cursor:pointer;
-  border:0;
-}
-.btn.blue{ background:#2563eb; color:white; }
-.btn.red{ background:#e11d48; color:white; }
-.btn.gray{ background:#e5e7eb; color:#1f2937; }
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:14px;
-}
-th,td{
-  padding:10px 8px;
-  border-bottom:1px solid #e5e7eb;
-  text-align:left;
-  vertical-align:middle;
-}
-.small{
-  font-size:14px;
-  color:#6b7280;
-}
-.preview{
-  width:70px;
-  height:40px;
-  object-fit:cover;
-  border-radius:4px;
-  background:#000;
-  border:1px solid #222;
-  pointer-events:none;
-  aspect-ratio:16/9;
-}
+.nav-item.logout{ color:#e11d48; }
 
 /* =================================================
-   PENYIMPANAN – FINAL CSS (DESKTOP + MOBILE)
+   HAMBURGER HEADER (MOBILE ONLY)
    ================================================= */
-
-/* ---------- DESKTOP (AMAN) ---------- */
-.storage-page table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-.storage-page th,
-.storage-page td{
-  padding:10px 8px;
-  border-bottom:1px solid #e5e7eb;
-  text-align:left;
-  vertical-align:middle;
-  font-size:14px;
-}
-
-.storage-page td a{
-  word-break:break-all;
-}
-
-/* =================================================
-   MOBILE MODE
-   ================================================= */
-@media (max-width: 480px){
-
-  /* RESET */
-  body.storage-page{
-    margin:0;
-    padding:0;
-    overflow-x:hidden;
-  }
-
-  .storage-page .container{
-    width:100%;
-    max-width:100%;
-    margin:0;
-    padding:16px;
-    box-sizing:border-box;
-  }
-
-  /* NAV */
-  .storage-page .nav{
-    display:flex;
-    gap:16px;
-    overflow-x:auto;
-    white-space:nowrap;
-    padding-bottom:8px;
-    -webkit-overflow-scrolling:touch;
-  }
-
-  .storage-page .nav::-webkit-scrollbar{
-    display:none;
-  }
-
-  .storage-page .nav-item{
-    flex-shrink:0;
-    font-size:15px;
-  }
-
-  /* CARD */
-  .storage-page .card{
-    width:100%;
-    max-width:100%;
-    padding:16px;
-    margin-top:16px;
-    border-radius:12px;
-    box-sizing:border-box;
-  }
-
-  /* UPLOAD AREA */
-  .storage-page input[type="file"],
-  .storage-page button{
-    width:100%;
-    font-size:16px;
-  }
-
-  .storage-page button{
-    min-height:44px;
-    margin-top:8px;
-  }
-
-  /* ---------- TABLE → CARD ---------- */
-  .storage-page table,
-  .storage-page thead,
-  .storage-page tbody,
-  .storage-page tr,
-  .storage-page th,
-  .storage-page td{
-    display:block;
-    width:100%;
-    box-sizing:border-box;
-  }
-
-  .storage-page thead{
-    display:none;
-  }
-
-  /* SETIAP FILE = 1 KARTU */
-  .storage-page tbody tr{
-    background:#ffffff;
-    border:1px solid #e5e7eb;
-    border-radius:12px;
-    padding:12px;
-    margin-bottom:14px;
-  }
-
-  .storage-page td{
-    border:none;
-    padding:6px 0;
-    font-size:14px;
-    word-break:break-word;
-  }
-
-  /* LABEL */
-  .storage-page td:nth-child(1)::before{
-    content:"Preview";
-    font-weight:600;
-    display:block;
-  }
-
-  .storage-page td:nth-child(2)::before{
-    content:"Nama File";
-    font-weight:600;
-    display:block;
-  }
-
-  .storage-page td:nth-child(3)::before{
-    content:"Ukuran";
-    font-weight:600;
-    display:block;
-  }
-
-  .storage-page td:last-child::before{
-    content:"Aksi";
-    font-weight:600;
-    display:block;
-    margin-top:8px;
-  }
-
-  /* PREVIEW VIDEO */
-  .storage-page .preview{
-    width:100%;
-    max-width:240px;
-    height:auto;
-    margin-bottom:6px;
-  }
-
-  /* TOMBOL AKSI SERAGAM */
-  .storage-page td:last-child button,
-  .storage-page td:last-child a{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    height:42px;
-    margin-top:6px;
-    padding:0;
-    font-size:14px;
-    border-radius:8px;
-    box-sizing:border-box;
-  }
-}
-
-/* ===============================
-   HAMBURGER MENU – CONSISTENT
-   =============================== */
-
-/* HEADER */
 .nav-header{
   display:none;
   margin-top:16px;
 }
 
-/* BUTTON */
 .hamburger{
   display:flex;
   align-items:center;
@@ -275,19 +74,82 @@ th,td{
   padding:8px 12px;
 }
 
-/* LOGOUT */
-.nav-item.logout{
-  color:#e11d48;
-  font-weight:600;
+/* =================================================
+   CARD & BUTTON
+   ================================================= */
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+  margin-top:24px;
 }
 
-/* MOBILE */
-@media (max-width: 480px){
+.btn{
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  border:0;
+}
 
+.btn.blue{ background:#2563eb; color:white; }
+.btn.red{ background:#e11d48; color:white; }
+.btn.gray{ background:#e5e7eb; color:#1f2937; }
+
+.small{
+  font-size:14px;
+  color:#6b7280;
+}
+
+/* =================================================
+   TABLE DESKTOP
+   ================================================= */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:14px;
+}
+
+th,td{
+  padding:10px 8px;
+  border-bottom:1px solid #e5e7eb;
+  text-align:left;
+  vertical-align:middle;
+}
+
+.preview{
+  width:70px;
+  height:40px;
+  object-fit:cover;
+  border-radius:4px;
+  background:#000;
+  border:1px solid #222;
+  aspect-ratio:16/9;
+}
+
+/* =================================================
+   MOBILE MODE (FINAL, NO CONFLICT)
+   ================================================= */
+@media (max-width:480px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .container{
+    max-width:100%;
+    margin:0;
+    padding:16px;
+    border-radius:0;
+  }
+
+  /* SHOW HAMBURGER */
   .nav-header{
     display:block;
   }
 
+  /* NAV CLOSED BY DEFAULT */
   .nav{
     display:none;
     flex-direction:column;
@@ -310,51 +172,109 @@ th,td{
   .nav-item:last-child{
     border-bottom:none;
   }
-}
 
-  
+  /* CARD */
+  .card{
+    padding:16px;
+  }
+
+  /* FORM */
+  input[type="file"],
+  button{
+    width:100%;
+    font-size:16px;
+  }
+
+  button{
+    min-height:44px;
+    margin-top:8px;
+  }
+
+  /* TABLE → CARD */
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+  }
+
+  thead{ display:none; }
+
+  tbody tr{
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:12px;
+    margin-bottom:14px;
+  }
+
+  td{
+    border:none;
+    padding:6px 0;
+    font-size:14px;
+    word-break:break-word;
+  }
+
+  td:nth-child(1)::before{ content:"Preview"; font-weight:600; display:block; }
+  td:nth-child(2)::before{ content:"Nama File"; font-weight:600; display:block; }
+  td:nth-child(3)::before{ content:"Ukuran"; font-weight:600; display:block; }
+  td:last-child::before{ content:"Aksi"; font-weight:600; display:block; margin-top:8px; }
+
+  .preview{
+    width:100%;
+    max-width:240px;
+    height:auto;
+  }
+
+  td:last-child button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:42px;
+    margin-top:6px;
+    padding:0;
+    font-size:14px;
+    border-radius:8px;
+  }
+}
 </style>
 </head>
 
 <body class="storage-page">
 
-
 <div class="container">
   <h1 style="margin:0;">Penyimpanan</h1>
   <p style="margin:6px 0 0; color:#6b7280;">Halaman untuk mengelola video</p>
 
+  <!-- HAMBURGER -->
+  <div class="nav-header">
+    <button class="hamburger" onclick="toggleMenu()">☰ <span>Menu</span></button>
+  </div>
 
-<!-- HEADER MOBILE -->
-<div class="nav-header">
-  <button class="hamburger" onclick="toggleMenu()">
-    ☰ <span>Menu</span>
-  </button>
-</div>
-
-<!-- NAV MENU -->
-<div class="nav" id="navMenu">
-  <a href="dashboard.html" class="nav-item">Dashboard</a>
-  <a href="penyimpanan.html" class="nav-item">Penyimpanan</a>
-  <a href="jadwal.html" class="nav-item">Jadwal Live</a>
-  <a href="pengaturan.html" class="nav-item">Pengaturan</a>
-
-  <a href="#" onclick="logout()" class="nav-item logout">Logout</a>
-</div>
-
+  <!-- NAV -->
+  <div class="nav" id="navMenu">
+    <a href="dashboard.html" class="nav-item">Dashboard</a>
+    <a href="penyimpanan.html" class="nav-item">Penyimpanan</a>
+    <a href="jadwal.html" class="nav-item">Jadwal Live</a>
+    <a href="pengaturan.html" class="nav-item">Pengaturan</a>
+    <a href="#" onclick="logout()" class="nav-item logout">Logout</a>
+  </div>
 
   <div class="card">
-    <h3 style="margin-top:0;">Upload Video Disini</h3>
+    <h3>Upload Video Disini</h3>
 
-    <!-- FIX 1: batasi sebagai video -->
     <input id="fileInput" type="file" accept="video/*">
 
     <div style="display:flex; gap:10px; margin-top:10px;">
-      <!-- FIX 2: pastikan tidak submit default -->
       <button id="uploadBtn" type="button" class="btn blue">Upload</button>
       <button id="refreshBtn" type="button" class="btn gray">Refresh</button>
     </div>
 
-    <p id="uploadStatus" class="small" style="margin-top:10px;"></p>
+    <p id="uploadStatus" class="small"></p>
 
     <table>
       <thead>
@@ -366,7 +286,7 @@ th,td{
         </tr>
       </thead>
       <tbody id="storageTbody">
-        <tr><td colspan="4" class="small">Memuat...</td></tr>
+        <tr><td colspan="4">Memuat...</td></tr>
       </tbody>
     </table>
   </div>
@@ -376,110 +296,11 @@ th,td{
 const WORKER_API = "https://yt-scheduler-api.rigus-apps.workers.dev";
 const REPLIT_CONVERTER = "https://26dd6d56-c0d8-4b20-b07d-bae16f37a698-00-154zx0u9lm7i4.sisko.replit.dev/convert";
 const REPLIT_HEALTH = "https://26dd6d56-c0d8-4b20-b07d-bae16f37a698-00-154zx0u9lm7i4.sisko.replit.dev";
- 
 
-async function loadFiles(){
-  const tbody = document.getElementById("storageTbody");
-  tbody.innerHTML = `<tr><td colspan="4">Memuat...</td></tr>`;
-
-  try {
-    const r = await fetch(WORKER_API + "/storage");
-    const j = await r.json();
-
-    tbody.innerHTML = "";
-
-    j.list.forEach(item=>{
-      const videoUrl = WORKER_API + "/public/" + item.key;
-
-      tbody.innerHTML += `
-        <tr>
-          <td>
-            <video class="preview"
-              src="${videoUrl}"
-              preload="metadata"
-              muted
-              playsinline></video>
-          </td>
-          <td>${item.key}</td>
-          <td>${Math.round(item.size/1024)} KB</td>
-          <td>
-            <button class="btn gray" onclick="navigator.clipboard.writeText('${videoUrl}')">Copy</button>
-            <button class="btn red" onclick="deleteFile('${item.key}')">Hapus</button>
-          </td>
-        </tr>
-      `;
-    });
-
-  } catch {
-    tbody.innerHTML = `<tr><td colspan="4">Gagal memuat data</td></tr>`;
-  }
-}
-
-async function deleteFile(key){
-  if(!confirm("Hapus file ini?")) return;
-  await fetch(WORKER_API + "/storage/" + key, { method:"DELETE" });
-  loadFiles();
-}
-
-document.getElementById("uploadBtn").onclick = async () => {
-  const f = document.getElementById("fileInput").files[0];
-  const status = document.getElementById("uploadStatus");
-
-  if(!f){
-    status.textContent = "Pilih file dulu!";
-    return;
-  }
-
-  status.textContent = "Mengonversi...";
-
-  const form = new FormData();
-  form.append("video", f);
-
-  try {
-    const r = await fetch(REPLIT_CONVERTER, { method:"POST", body:form });
-    const html = await r.text();
-    const match = html.match(/href="(.*?)"/);
-
-    if(!match){
-      status.textContent = "Upload sukses";
-      loadFiles();
-      return;
-    }
-
-    const blob = await fetch(match[1]).then(r=>r.blob());
-
-    const form2 = new FormData();
-    form2.append("file", blob, Date.now()+".mp4");
-
-    const r2 = await fetch(WORKER_API + "/upload", { method:"POST", body:form2 });
-    const j = await r2.json();
-
-    status.textContent = j.ok ? "Upload selesai!" : "Upload gagal";
-    loadFiles();
-
-  } catch(e){
-    status.textContent = "ERROR: "+e;
-  }
-};
-
-document.getElementById("refreshBtn").onclick = loadFiles;
-  
-// AUTO-WARM Replit Converter (anti gagal upload pertama)
-(function warmReplit(){
-  fetch(REPLIT_HEALTH, { mode:"no-cors" })
-    .then(()=>console.log("Replit converter warmed"))
-    .catch(()=>console.log("Replit warm attempt"));
-})();
-
-loadFiles();
-</script>
-
-<script>
 function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("show");
 }
 </script>
 
-  
 </body>
 </html>
