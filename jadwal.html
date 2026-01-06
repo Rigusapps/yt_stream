@@ -1,13 +1,17 @@
 <!doctype html>
 <html lang="id">
 <head>
-<script src='auth.js'></script>
+<script src="auth.js"></script>
 <meta charset="utf-8"/>
 <title>Jadwal Live</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
-  
+
 <style>
+/* =================================================
+   BASE
+   ================================================= */
 body{
   font-family:'Inter',sans-serif;
   background:#f4f7fb;
@@ -15,6 +19,7 @@ body{
   padding:0;
   color:#0f172a;
 }
+
 .container{
   max-width:980px;
   margin:36px auto;
@@ -23,6 +28,10 @@ body{
   border-radius:12px;
   box-shadow:0 8px 30px rgba(16,24,40,0.06);
 }
+
+/* =================================================
+   NAV DESKTOP
+   ================================================= */
 .nav{
   margin-top:20px;
   display:flex;
@@ -30,6 +39,7 @@ body{
   border-bottom:1px solid #e5e7eb;
   padding-bottom:12px;
 }
+
 .nav-item{
   font-size:15px;
   font-weight:600;
@@ -39,228 +49,19 @@ body{
   border-bottom:2px solid transparent;
   transition:.15s;
 }
+
 .nav-item:hover{ color:#2563eb; }
 .nav-item.active{ color:#2563eb; border-color:#2563eb; }
-
-.card{
-  background:white;
-  padding:20px;
-  border-radius:10px;
-  border:1px solid #e5e7eb;
-  margin-top:24px;
-}
-.btn{
-  padding:8px 16px;
-  border-radius:8px;
-  font-weight:600;
-  cursor:pointer;
-  border:0;
-}
-.btn.blue{ background:#2563eb;color:white; }
-.btn.red{ background:#e11d48;color:white; }
-.btn.gray{ background:#e5e7eb;color:#1f2937; }
-
-.small{font-size:13px;color:#6b7280;}
-table{width:100%;border-collapse:collapse;margin-top:14px;}
-th,td{padding:12px 6px;text-align:left;border-bottom:1px solid #e5e7eb;}
-
-/* --- Tambahan Perbaikan Aksi --- */
-.action-box{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.btn.small-btn{
-  padding:6px 12px;
-  font-size:13px;
-  border-radius:6px;
-}
-
+.nav-item.logout{ color:#e11d48; }
 
 /* =================================================
-   JADWAL LIVE – FINAL CSS (DESKTOP + MOBILE)
+   HAMBURGER HEADER (MOBILE)
    ================================================= */
-
-/* ---------- DESKTOP (AMAN) ---------- */
-.schedule-page table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-.schedule-page th,
-.schedule-page td{
-  padding:10px 8px;
-  border-bottom:1px solid #e5e7eb;
-  text-align:left;
-  vertical-align:top;
-  font-size:14px;
-}
-
-.schedule-page th{
-  font-weight:600;
-}
-
-.schedule-page td a{
-  word-break:break-all;
-}
-
-
-/* =================================================
-   MOBILE MODE
-   ================================================= */
-@media (max-width: 480px){
-
-  /* RESET OVERFLOW */
-  body.schedule-page{
-    margin:0;
-    padding:0;
-    overflow-x:hidden;
-  }
-
-  .schedule-page .container{
-    width:100%;
-    max-width:100%;
-    margin:0;
-    padding:16px;
-    box-sizing:border-box;
-  }
-
-  /* NAV SCROLL */
-  .schedule-page .nav{
-    display:flex;
-    gap:16px;
-    overflow-x:auto;
-    white-space:nowrap;
-    padding-bottom:8px;
-    -webkit-overflow-scrolling:touch;
-  }
-
-  .schedule-page .nav::-webkit-scrollbar{
-    display:none;
-  }
-
-  .schedule-page .nav-item{
-    flex-shrink:0;
-    font-size:15px;
-  }
-
-  /* ---------- TABEL → CARD ---------- */
-  .schedule-page table,
-  .schedule-page thead,
-  .schedule-page tbody,
-  .schedule-page tr,
-  .schedule-page th,
-  .schedule-page td{
-    display:block;
-    width:100%;
-    box-sizing:border-box;
-  }
-
-  .schedule-page thead{
-    display:none;
-  }
-
-  /* SETIAP BARIS JADI KARTU */
-  .schedule-page tbody tr{
-    background:#ffffff;
-    border:1px solid #e5e7eb;
-    border-radius:12px;
-    padding:12px;
-    margin-bottom:14px;
-  }
-
-  /* CELL */
-  .schedule-page td{
-    border:none;
-    padding:6px 0;
-    font-size:14px;
-    word-break:break-word;
-  }
-
-  /* LABEL OTOMATIS BERDASARKAN URUTAN */
-  .schedule-page td:nth-child(1)::before{
-    content:"Waktu (WIB)";
-    font-weight:600;
-    display:block;
-  }
-
-  .schedule-page td:nth-child(2)::before{
-    content:"Judul";
-    font-weight:600;
-    display:block;
-  }
-
-  .schedule-page td:nth-child(3)::before{
-    content:"Durasi";
-    font-weight:600;
-    display:block;
-  }
-
-  .schedule-page td:nth-child(4)::before{
-    content:"Video";
-    font-weight:600;
-    display:block;
-  }
-
-  /* KOLOM TERAKHIR = AKSI (PALING AMAN) */
-  .schedule-page td:last-child::before{
-    content:"Aksi";
-    font-weight:600;
-    display:block;
-    margin-top:8px;
-  }
-
-  /* LINK VIDEO */
-  .schedule-page td a{
-    font-size:13px;
-    word-break:break-all;
-  }
-
-  /* TOMBOL AKSI */
-  .schedule-page td:last-child button,
-  .schedule-page td:last-child a{
-    display:block;
-    width:100%;
-    margin-top:6px;
-    padding:10px;
-    text-align:center;
-    border-radius:8px;
-  }
-}
-
-  /* ==================================
-   SAMAKAN UKURAN TOMBOL AKSI (MOBILE)
-   ================================== */
-@media (max-width: 480px){
-
-  /* Semua tombol / link di kolom Aksi */
-  .schedule-page td:last-child button,
-  .schedule-page td:last-child a{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    height:42px;              /* KUNCI tinggi */
-    padding:0;                /* Hilangkan padding beda */
-    margin-top:6px;
-    font-size:14px;
-    border-radius:8px;
-    box-sizing:border-box;
-  }
-}
-
-/* ===============================
-   HAMBURGER MENU – CONSISTENT
-   =============================== */
-
-/* HEADER */
 .nav-header{
   display:none;
   margin-top:16px;
 }
 
-/* BUTTON */
 .hamburger{
   display:flex;
   align-items:center;
@@ -273,19 +74,82 @@ th,td{padding:12px 6px;text-align:left;border-bottom:1px solid #e5e7eb;}
   padding:8px 12px;
 }
 
-/* LOGOUT */
-.nav-item.logout{
-  color:#e11d48;
-  font-weight:600;
+/* =================================================
+   CARD & BUTTON
+   ================================================= */
+.card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+  margin-top:24px;
 }
 
-/* MOBILE */
-@media (max-width: 480px){
+.btn{
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  border:0;
+}
 
+.btn.blue{ background:#2563eb;color:white; }
+.btn.red{ background:#e11d48;color:white; }
+.btn.gray{ background:#e5e7eb;color:#1f2937; }
+
+.btn.small-btn{
+  padding:6px 12px;
+  font-size:13px;
+  border-radius:6px;
+}
+
+.small{
+  font-size:13px;
+  color:#6b7280;
+}
+
+/* =================================================
+   TABLE DESKTOP
+   ================================================= */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:14px;
+}
+
+th,td{
+  padding:12px 6px;
+  text-align:left;
+  border-bottom:1px solid #e5e7eb;
+  vertical-align:top;
+}
+
+td a{
+  word-break:break-all;
+}
+
+/* =================================================
+   MOBILE MODE (FINAL, NO CONFLICT)
+   ================================================= */
+@media (max-width:480px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .container{
+    max-width:100%;
+    margin:0;
+    padding:16px;
+    border-radius:0;
+  }
+
+  /* SHOW HAMBURGER */
   .nav-header{
     display:block;
   }
 
+  /* NAV CLOSED BY DEFAULT */
   .nav{
     display:none;
     flex-direction:column;
@@ -308,67 +172,136 @@ th,td{padding:12px 6px;text-align:left;border-bottom:1px solid #e5e7eb;}
   .nav-item:last-child{
     border-bottom:none;
   }
-}
-  
 
-  
+  /* CARD */
+  .card{
+    padding:16px;
+  }
+
+  /* TABLE → CARD MODE */
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+  }
+
+  thead{ display:none; }
+
+  tbody tr{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:12px;
+    margin-bottom:14px;
+  }
+
+  td{
+    border:none;
+    padding:6px 0;
+    font-size:14px;
+    word-break:break-word;
+  }
+
+  td:nth-child(1)::before{
+    content:"Waktu (WIB)";
+    font-weight:600;
+    display:block;
+  }
+
+  td:nth-child(2)::before{
+    content:"Judul";
+    font-weight:600;
+    display:block;
+  }
+
+  td:nth-child(3)::before{
+    content:"Durasi";
+    font-weight:600;
+    display:block;
+  }
+
+  td:nth-child(4)::before{
+    content:"Video";
+    font-weight:600;
+    display:block;
+  }
+
+  td:last-child::before{
+    content:"Aksi";
+    font-weight:600;
+    display:block;
+    margin-top:8px;
+  }
+
+  /* AKSI */
+  .action-box{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  td:last-child a,
+  td:last-child button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:42px;
+    font-size:14px;
+    border-radius:8px;
+    padding:0;
+  }
+}
 </style>
 </head>
 
 <body class="schedule-page">
 
 <div class="container">
-<h1 style="margin:0;">Jadwal Live</h1>
-<p style="margin:6px 0 0;color:#6b7280;">Halaman untuk melihat jadwal livestream.</p>
 
-<!-- HEADER MOBILE -->
-<div class="nav-header">
-  <button class="hamburger" onclick="toggleMenu()">
-    ☰ <span>Menu</span>
-  </button>
-</div>
+  <h1 style="margin:0;">Jadwal Live</h1>
+  <p style="margin:6px 0 0;color:#6b7280;">Halaman untuk melihat jadwal livestream.</p>
 
-<!-- NAV MENU -->
-<div class="nav" id="navMenu">
-  <a href="dashboard.html" class="nav-item">Dashboard</a>
-  <a href="penyimpanan.html" class="nav-item">Penyimpanan</a>
-  <a href="jadwal.html" class="nav-item">Jadwal Live</a>
-  <a href="pengaturan.html" class="nav-item">Pengaturan</a>
-
-  <a href="#" onclick="logout()" class="nav-item logout">Logout</a>
-</div>
-
-
-<script>
-document.addEventListener("DOMContentLoaded",()=>{
-  const cur = location.pathname.split("/").pop();
-  document.querySelectorAll(".nav-item").forEach(a=>{
-    if(a.getAttribute("href")===cur) a.classList.add("active");
-  });
-});
-</script>
-
-<div class="card">
-  <div style="display:flex;justify-content:space-between;">
-    <button id="sync" class="btn blue">Sync Now</button>
-    <div class="small" id="status">—</div>
+  <!-- HAMBURGER -->
+  <div class="nav-header">
+    <button class="hamburger" onclick="toggleMenu()">☰ <span>Menu</span></button>
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Waktu (WIB)</th>
-        <th>Judul</th>
-        <th>Durasi</th>
-        <th>Video</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody id="tbody">
-      <tr><td colspan="5" class="small">Memuat...</td></tr>
-    </tbody>
-  </table>
-</div>
+  <!-- NAV -->
+  <div class="nav" id="navMenu">
+    <a href="dashboard.html" class="nav-item">Dashboard</a>
+    <a href="penyimpanan.html" class="nav-item">Penyimpanan</a>
+    <a href="jadwal.html" class="nav-item active">Jadwal Live</a>
+    <a href="pengaturan.html" class="nav-item">Pengaturan</a>
+    <a href="#" onclick="logout()" class="nav-item logout">Logout</a>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <button id="sync" class="btn blue">Sync Now</button>
+      <div class="small" id="status">—</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Waktu (WIB)</th>
+          <th>Judul</th>
+          <th>Durasi</th>
+          <th>Video</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr><td colspan="5" class="small">Memuat...</td></tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
 
@@ -443,14 +376,11 @@ async function load(){
 
 document.getElementById("sync").onclick = load;
 load();
-</script>
 
-<script>
 function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("show");
 }
 </script>
 
-  
 </body>
 </html>
