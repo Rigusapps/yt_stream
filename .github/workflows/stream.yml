@@ -1,6 +1,7 @@
 name: Stream to YouTube (Looping Optional)
 
 on:
+  workflow_dispatch:
   repository_dispatch:
     types: [stream_trigger]
 
