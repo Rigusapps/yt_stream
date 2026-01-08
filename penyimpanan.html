@@ -419,37 +419,15 @@ document.getElementById("uploadBtn").onclick = async ()=>{
 
   try{
     const r = await fetch(REPLIT_CONVERTER, { method:"POST", body:form });
-   const r = await fetch(REPLIT_CONVERTER, {
-  method: "POST",
-  body: form
-});
+    const html = await r.text();
+    const match = html.match(/href="(.*?)"/);
 
-const j = await r.json();
+    if(!match){
+      status.textContent = "Upload gagal";
+      return;
+    }
 
-if(!j.ok || !j.url){
-  status.textContent = "Upload gagal";
-  return;
-}
-
-// langsung upload ke worker
-const blob = await fetch(j.url).then(r => r.blob());
-
-const form2 = new FormData();
-form2.append("file", blob, Date.now() + ".mp4");
-
-const r2 = await fetch(WORKER_API + "/upload", {
-  method: "POST",
-  body: form2
-});
-
-const j2 = await r2.json();
-
-status.textContent = j2.ok
-  ? "Upload selesai!"
-  : "Upload gagal";
-
-loadFiles();
-
+    const blob = await fetch(match[1]).then(r=>r.blob());
     const form2 = new FormData();
     form2.append("file", blob, Date.now()+".mp4");
 
