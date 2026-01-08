@@ -489,11 +489,56 @@ btnAktifkan.addEventListener("click", () => {
   serverStatus.textContent = "Status: Mengaktifkan server...";
   serverStatus.style.color = "orange";
 
-  // wake up Replit
-  window.open(
-    "https://26dd6d56-c0d8-4b20-b07d-bae16f37a698-00-154zx0u9lm7i4.sisko.replit.dev/",
-    "_blank"
-  );
+<script>
+/* === TAMBAHAN: AKTIVASI SERVER (FINAL & RAPI) === */
+
+const btnAktifkan  = document.getElementById("btnAktifkan");
+const serverStatus = document.getElementById("serverStatus");
+
+const fileInput  = document.getElementById("fileInput");
+const uploadBtn  = document.getElementById("uploadBtn");
+const refreshBtn = document.getElementById("refreshBtn");
+
+/* default: LOCK */
+fileInput.disabled  = true;
+uploadBtn.disabled  = true;
+refreshBtn.disabled = true;
+
+btnAktifkan.addEventListener("click", async () => {
+  btnAktifkan.disabled = true;
+  serverStatus.textContent = "Status: Mengaktifkan server...";
+  serverStatus.style.color = "orange";
+
+  try {
+    await fetch(
+      "https://26dd6d56-c0d8-4b20-b07d-bae16f37a698-00-154zx0u9lm7i4.sisko.replit.dev/health"
+    );
+
+    serverStatus.textContent =
+      "✅ Server aktif. Silakan upload video anda.";
+    serverStatus.style.color = "green";
+
+    fileInput.disabled  = false;
+    uploadBtn.disabled  = false;
+    refreshBtn.disabled = false;
+
+    alert("Server aktif.\nSilakan upload video anda.");
+
+    // keep alive
+    setInterval(() => {
+      fetch("https://26dd6d56-c0d8-4b20-b07d-bae16f37a698-00-154zx0u9lm7i4.sisko.replit.dev/health")
+        .catch(()=>{});
+    }, 60000);
+
+  } catch (e) {
+    btnAktifkan.disabled = false;
+    serverStatus.textContent = "❌ Gagal mengaktifkan server";
+    serverStatus.style.color = "red";
+    alert("Gagal mengaktifkan server. Coba lagi.");
+  }
+});
+</script>
+
 
   setTimeout(() => {
     serverStatus.textContent =
@@ -509,6 +554,7 @@ btnAktifkan.addEventListener("click", () => {
 });
 </script>
 
+   
    
 </body>
 </html>
