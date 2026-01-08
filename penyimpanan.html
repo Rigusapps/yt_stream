@@ -284,6 +284,14 @@ th,td{
     color:#6b7280;
   }
 }
+
+
+/* === TAMBAHAN: LOCK STATE === */
+button:disabled,
+input:disabled{
+  opacity:0.5;
+  cursor:not-allowed;
+}
    
    
 </style>
@@ -309,6 +317,14 @@ th,td{
     <a href="#" onclick="logout()" class="nav-item logout">Logout</a>
   </div>
 
+<!-- === TAMBAHAN: AKTIVASI SERVER === -->
+<div class="card">
+  <h3>Aktivasi Server</h3>
+  <button id="btnAktifkan" class="btn blue">🔌 Aktifkan Server</button>
+  <p id="serverStatus" class="small">Status: Server belum aktif</p>
+</div>
+
+   
   <div class="card">
     <h3>Upload Video Disini</h3>
 
@@ -337,6 +353,8 @@ th,td{
   </div>
 </div>
 
+
+   
 <script>
 const WORKER_API = "https://yt-scheduler-api.rigus-apps.workers.dev";
 const REPLIT_CONVERTER = "https://26dd6d56-c0d8-4b20-b07d-bae16f37a698-00-154zx0u9lm7i4.sisko.replit.dev/convert";
@@ -450,6 +468,45 @@ document.getElementById("refreshBtn").onclick = loadFiles;
 
 // auto load saat halaman dibuka
 loadFiles();
+</script>
+
+   <script>
+/* === TAMBAHAN: AKTIVASI SERVER === */
+
+const btnAktifkan  = document.getElementById("btnAktifkan");
+const serverStatus = document.getElementById("serverStatus");
+
+const fileInput  = document.getElementById("fileInput");
+const uploadBtn  = document.getElementById("uploadBtn");
+const refreshBtn = document.getElementById("refreshBtn");
+
+/* default: LOCK */
+fileInput.disabled  = true;
+uploadBtn.disabled  = true;
+refreshBtn.disabled = true;
+
+btnAktifkan.addEventListener("click", () => {
+  serverStatus.textContent = "Status: Mengaktifkan server...";
+  serverStatus.style.color = "orange";
+
+  // wake up Replit
+  window.open(
+    "https://26dd6d56-c0d8-4b20-b07d-bae16f37a698-00-154zx0u9lm7i4.sisko.replit.dev/",
+    "_blank"
+  );
+
+  setTimeout(() => {
+    serverStatus.textContent =
+      "✅ Server aktif. Silahkan upload video anda.";
+    serverStatus.style.color = "green";
+
+    fileInput.disabled  = false;
+    uploadBtn.disabled  = false;
+    refreshBtn.disabled = false;
+
+    alert("Server aktif.\nSilahkan upload video anda.");
+  }, 5000);
+});
 </script>
 
    
